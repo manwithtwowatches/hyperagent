@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
 var define, requireModule;
 
 (function () {
@@ -66,7 +66,7 @@ define("hyperagent/config",
 
     // Provide defaults in case we're in a browser.
     if (typeof window !== 'undefined') {
-      config.ajax = window.$ && window.$.ajax.bind(window.$);
+      config.ajax = $ && $.ajax.bind($);
       config.defer = window.Q && window.Q.defer;
       config._ = _;
       config.loadHooks = [];
@@ -687,4 +687,4 @@ define("hyperagent/resource",
     __exports__.LinkResource = LinkResource;
   });
 window.Hyperagent = requireModule('hyperagent');
-}());
+}(jQuery));
