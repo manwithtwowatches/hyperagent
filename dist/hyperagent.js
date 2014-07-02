@@ -66,7 +66,7 @@ define("hyperagent/config",
 
     // Provide defaults in case we're in a browser.
     if (typeof window !== 'undefined') {
-      config.ajax = $ && $.ajax.bind($);
+      config.ajax = $ && $.ajax && $.ajax.bind && $.ajax.bind($);
       config.defer = window.Q && window.Q.defer;
       config._ = _;
       config.loadHooks = [];
