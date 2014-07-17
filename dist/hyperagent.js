@@ -428,6 +428,10 @@ define("hyperagent/resource",
      * Parses a response string.
      */
     Resource.prototype._parse = function _parse(response) {
+      if(!response) {
+         // Intercept empty responses from DELETEs
+        response = "{}";
+      }
       var object = JSON.parse(response);
       this._load(object);
     };
